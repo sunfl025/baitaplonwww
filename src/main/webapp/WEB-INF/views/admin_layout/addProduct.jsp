@@ -61,7 +61,7 @@
 								enctype="multipart/form-data">
 								<div class="form-group">
 									<label>Tên sản phẩm</label> <input type="text"
-										class="form-control" name="title" placeholder="Tên sản phẩm">
+										class="form-control" name="title" placeholder="Tên sản phẩm" >
 								</div>
 								<div class="form-group">
 									<label>Giá:</label> <input type="number" class="form-control"

@@ -15,6 +15,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -59,12 +61,12 @@ public class ProductManagetController {
 		Product product = new Product();
 		theModel.addAttribute("categories", categories);
 		theModel.addAttribute("product", product);
-
+		
 		return "admin_layout/addProduct";
 	}
 
 	@PostMapping("/saveProduct")
-	public String saveInfor(@RequestParam("title") String title, @RequestParam("price") int price,
+	public String saveInfor(@RequestParam("title") String title, @RequestParam("price") int price, 
 			@RequestParam("description") String description, @RequestParam("type") String type, MultipartFile photo,
 			ModelMap modelMap) {
 		Product product = new Product();

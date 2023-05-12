@@ -125,12 +125,12 @@ public class AdminController {
 		Cart[] carts = gson.fromJson(products, Cart[].class); 
 		long millis=System.currentTimeMillis();
 		java.sql.Date date=new java.sql.Date(millis);
-		Order order = new Order(phone,address,total,"publish",date);		
+		Order order = new Order(phone,address,total,"Chờ xác nhận",date);		
 		orderReponsitory.save(order);
 
 //				public OrderDetail(int quantity, String status, Date createdAt, int product_id, int order_id) {
 		for(Cart cart : carts) {
-			CartDetail orderDetail = new CartDetail(cart.getQuantity(), "publish", date, cart.getId(),order.getId());
+			CartDetail orderDetail = new CartDetail(cart.getQuantity(), "Chờ xác nhận", date, cart.getId(),order.getId());
 			cartDetailReponsitory.save(orderDetail);
 		}
 		

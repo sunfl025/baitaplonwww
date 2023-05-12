@@ -6,9 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.model.Order;
 import com.model.OrderDetail;
@@ -49,6 +51,16 @@ public class OrderDetailManagerController {
 		 Product product = productService.getProductById(orderDetail.getProduct().getId());
 		 model.addAttribute("proudct", product);
 		 return "admin_layout/OrderInfor";
+	 }
+	 @PostMapping("/acceptOrDetail")
+	 public String acceptOrDetail(@RequestParam("id") int id, MultipartFile photo) {
+		 if (photo == null) {
+			 OrderDetail orderDetail = orderDetailService.getOrDetailById(id);
+			 orderDetail.setStatus("Chấp nhận");
+			 orderDetailService.updateOrDetail(id, orderDetail);
+	         return "redirect:/admin/listOrDetail";
+		}
+		 return null;
 	 }
 	}
 

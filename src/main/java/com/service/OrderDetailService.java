@@ -11,4 +11,5 @@ public interface OrderDetailService {
 	public List<OrderDetail> saveAllOrDetail(List<OrderDetail> orderDetails);
 	public OrderDetail updateOrDetail(int id,OrderDetail orderDetail);
 	public String deleteOrDetail(int id);
+	public List<OrderDetail> getOrderDetailsByStatus(String status);
 }
