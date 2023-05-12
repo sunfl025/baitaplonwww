@@ -166,7 +166,7 @@ public class AdminController {
 		long millis=System.currentTimeMillis();
 		java.sql.Date date=new java.sql.Date(millis);
 		theModel.addAttribute("product",theProduct);
-		Order order = new Order(phone,address,quantity*theProduct.getPrice(),"publish",date);		
+		Order order = new Order(phone,address,quantity*theProduct.getPrice(),"Chờ xác nhận",date);		
 		orderService.addOrder(order);
 		
 		OrderDetail orderDetail = new OrderDetail(quantity, "publish", date, order, theProduct);

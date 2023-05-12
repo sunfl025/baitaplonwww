@@ -30,7 +30,7 @@
     </style>
 <body>
 
-<form:form action="muangay" modelAttribute="product" method="GET">
+<form:form action="muahangngay" modelAttribute="product" method="GET">
    <form:hidden path="id"/>
      <jsp:include page="my_header.jsp"></jsp:include>
       <form action="/dathangngay">
@@ -68,7 +68,7 @@
                                 <td>
                                             <div >
                                                 <input   type="number" class="form-control" 
-                                                    aria-describedby="emailHelp" placeholder="0" name="quantity">     
+                                                    aria-describedby="emailHelp" value=1 name="quantity" min=1>     
                                                     <span class="text-danger" id="error_phone"></span>                                              
                                             </div>
                                 </td>   

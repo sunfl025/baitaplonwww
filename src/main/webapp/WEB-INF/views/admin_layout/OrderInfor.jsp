@@ -61,7 +61,7 @@
 									<div class="col-sm-5">
 										<div style="width: 30%">
 											<div class="image_display">
-												<img alt="sanpham" src="${pageContext.request.contextPath}/resources/images/quanaososinh/8.png" style="width: 300px"
+												<img alt="sanpham" src="../${orderDetail.product.image}" style="width: 300px"
 													height="300px">
 											</div>
 										</div>

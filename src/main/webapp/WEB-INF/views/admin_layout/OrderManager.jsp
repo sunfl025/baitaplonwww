@@ -69,7 +69,7 @@
                                         <c:param name="orderdetailId" value="${tempOrder.id}" />
                                 </c:url>					
                                 <!-- construct an "delete" link with customer id -->
-                                <c:url var="deleteLink" value="/admin/delete">
+                                <c:url var="deleteLink" value="/admin/deleteOrDetail">
                                         <c:param name="orderdetailId" value="${tempOrder.id}" />
                                 </c:url>	
 											<tr>
