@@ -31,7 +31,7 @@
 	href="${pageContext.request.contextPath}/assets/css/add-product.css"
 	rel="stylesheet" type="text/css" /> --%>
 </head>
-<body>
+<body id="app">
 	<div id="wrapper">
 		<jsp:include page="layout/left_sidebar.jsp" />
 		<jsp:include page="layout/topbar.jsp" />
@@ -60,20 +60,20 @@
 							<form action="saveProduct" method="post"
 								enctype="multipart/form-data">
 								<div class="form-group">
-									<label>Tên sản phẩm</label> <input type="text"
+									<label>Tên sản phẩm</label> <input v-model="title" id="txt_title" type="text"
 										class="form-control" name="title" placeholder="Tên sản phẩm">
 								</div>
 								<div class="form-group">
-									<label>Giá:</label> <input type="number" class="form-control"
+									<label>Giá:</label> <input v-model="price" id="txt_price" type="number" class="form-control"
 										name="price" placeholder="Giá">
 								</div>
 								<div class="form-group">
-									<label>Mô tả</label> <input type="text" class="form-control"
+									<label>Mô tả</label> <input v-model="description" id="txt_description" type="text" class="form-control"
 										name="description" placeholder="Mô tả">
 								</div>
 
 								<div class="form-group">
-									<label>Ảnh</label> <input type="file" class="form-control"
+									<label>Ảnh</label> <input v-model="photo" id="txt_photo"  type="file" class="form-control"
 										name="photo" accept="image/jpg; image/png">
 								</div>
 								<div class="form-group">
@@ -85,7 +85,7 @@
 										
 									</select>
 								</div>
-								<button type="submit" class="btn btn-primary">Lưu</button>
+								<button @click="submit($event)"  type="submit" class="btn btn-primary">Lưu</button>
 								<button type="reset" class="btn btn-primary" ><a href="/admin/listProduct" style="color: white;">Hủy</a> </button>
 							</form>
 							
