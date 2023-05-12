@@ -65,23 +65,14 @@
 											<td>Trạng thái</td>
 										</tr>
 										<c:forEach var="tempOrder" items="${orderDetails}">
-<<<<<<< HEAD
-											 <c:url var="updateLink" value="/admin/loadOrDetail">
-                                        <c:param name="orderdetailId" value="${tempOrder.id}" />
-                                </c:url>					
-                                <!-- construct an "delete" link with customer id -->
-                                <c:url var="deleteLink" value="/admin/deleteOrDetail">
-                                        <c:param name="orderdetailId" value="${tempOrder.id}" />
-                                </c:url>	
-=======
+
 											<c:url var="updateLink" value="/admin/loadOrDetail">
 												<c:param name="orderdetailId" value="${tempOrder.id}" />
 											</c:url>
 											<!-- construct an "delete" link with customer id -->
-											<c:url var="deleteLink" value="/admin/delete">
+											<c:url var="deleteLink" value="/admin/deleteOrDetail">
 												<c:param name="orderdetailId" value="${tempOrder.id}" />
 											</c:url>
->>>>>>> 7c7c8a3008bed6a2cc172e86e8d828ba743fa7b1
 											<tr>
 												<td>${tempOrder.product.title}</td>
 												<td>${tempOrder.quantity}</td>
@@ -89,7 +80,7 @@
 												<td>${tempOrder.order.phone}</td>
 												<td>${tempOrder.order.createdAt}</td>
 												<td>${tempOrder.status}</td>
-												
+
 												<td>
 													<button type="button"
 														class="btn btn-default waves-effect waves-light btn-sm "

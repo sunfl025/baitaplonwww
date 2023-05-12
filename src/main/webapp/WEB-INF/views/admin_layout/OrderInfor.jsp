@@ -61,12 +61,8 @@
 									<div class="col-sm-5">
 										<div style="width: 30%">
 											<div class="image_display">
-<<<<<<< HEAD
-												<img alt="sanpham" src="../${orderDetail.product.image}" style="width: 300px"
-=======
-												<img alt="sanpham" name="photo" src="../${product.image }" style="width: 300px"
->>>>>>> 7c7c8a3008bed6a2cc172e86e8d828ba743fa7b1
-													height="300px">
+
+												<img alt="sanpham" src="../${orderDetail.product.image}" style="width: 300px">
 											</div>
 										</div>
 									</div>
