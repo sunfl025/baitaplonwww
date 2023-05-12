@@ -16,7 +16,7 @@
                             aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
-                        <a href="./index.html">
+                        <a href="#">
                  
                              <img class="logo  " style="width: 65%;margin-left: 20px;" src="resources/images/logo/Screenshot 2023-04-24 063023.png"/>
                         </a>
@@ -60,7 +60,7 @@
                     <div class="col-lg-5 col-sm-12 menu_right">
                         <ul class="navbar-nav" style="float: right;">
                             <li class="nav-item dropdown item_menu_right">
-                                <a class="nav-link menu-item " href="test" data-bs-toggle="dropdown">Giới thiệu</a>
+                                <a class="nav-link menu-item " href="#" data-bs-toggle="dropdown">Giới thiệu</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link menu-item " href="#" data-bs-toggle="dropdown"> Tài khoản </a>
@@ -71,10 +71,10 @@
                             </li>
                             
                           <li class="nav-item dropdown item_menu_right">
-                                <form action="#" id="Search">
-                                    <input type="search" placeholder="Search">
+                                <form action="/timkiem" id="Search" >
+                                    <input type="search" placeholder="Search" name="search" style="background: #ededed url(resources/images/logo/search-icon.png) no-repeat 9px center;">
                                 </form>
-                            </li> 
+                            </li>
                             <li class="nav-item dropdown item_menu_right">
                                 <a class="nav-link menu-item " href="/muahang" data-bs-toggle="dropdown"><i
                                         class="material-icons cart">shopping_cart</i>

@@ -142,5 +142,37 @@ public class AdminController {
 		}
 		
 	}
+	
+	@GetMapping("/timkiem")
+	public String timkiem(@RequestParam("search") String search,Model theModel) {
+		List<Product> products = productService.getProductsByName(search);
+		theModel.addAttribute("products", products);
+		theModel.addAttribute("search", search);
+		 return "timkiem";
+	}
 	//------
+	@GetMapping("/muahangngay")
+	public String muangay(@RequestParam("productId") int theId,Model theModel) {	
+		List<Product> products = productService.getAllProducts();
+		theModel.addAttribute("products", products);
+		Product theProduct = productService.getProductById(theId);
+		theModel.addAttribute("product",theProduct);
+		return "muahangngay";
+	}
+	@GetMapping("/dathangngay")
+	public String dathang(@RequestParam("phone") String phone,@RequestParam("address") String address,@RequestParam("quantity") int quantity,@RequestParam("theId") int theId,Model theModel) {
+		Product theProduct = productService.getProductById(theId);
+		
+		long millis=System.currentTimeMillis();
+		java.sql.Date date=new java.sql.Date(millis);
+		theModel.addAttribute("product",theProduct);
+		Order order = new Order(phone,address,quantity*theProduct.getPrice(),"publish",date);		
+		orderService.addOrder(order);
+		
+		OrderDetail orderDetail = new OrderDetail(quantity, "publish", date, order, theProduct);
+		oderDetailService.addOrDetail(orderDetail);
+		List<Product> products = productService.getAllProducts();
+		theModel.addAttribute("products", products);
+		return "index";
+	}
 }

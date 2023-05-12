@@ -62,7 +62,7 @@
 
 <body id="app">
     <jsp:include page="my_header.jsp"></jsp:include>
-   <form:form action="chitietsanpham" modelAttribute="product" method="POST">
+   <form:form action="chitietsanpham" modelAttribute="product" method="GET">
    <form:hidden path="id" />
 
     
@@ -119,7 +119,7 @@
                             </div>
                         </li>
                     </ul>
-                                <c:url var="muangayLink" value="/muahang">
+                                <c:url var="muangayLink" value="/muahangngay">
                                         <c:param name="productId" value="${product.id}" />
                                 </c:url>
                     <button class="btn btn-primary" style="margin-top: 20px;
@@ -127,7 +127,7 @@
                         margin-left: 30px;
                         background-color: rgb(59, 56, 56);
                         color: white;
-                        border: rgb(59, 56, 56);"><a @click="addCart('${product.id}','${product.title}','${product.price}','${product.image}','${product.status}')" href="/muahang">MUA NGAY</a> 
+                        border: rgb(59, 56, 56);"><a href="${muangayLink}">MUA NGAY</a> 
                     </button>
                         <button @click="addCart('${product.id}','${product.title}','${product.price}','${product.image}','${product.status}')"
                         class="btn btn-primary" type="button" style="margin-left:5px"> 

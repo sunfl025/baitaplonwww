@@ -187,12 +187,17 @@ list-style: none;
  text-decoration: none;
     }
 #Search input[type=search] {
-    margin-top: 8px;
-    margin-left: 5px;
-    width: 105px;
-    padding-left: 10px;
-    color: transparent;
-    cursor: pointer;
+	 background: #ededed url(resources/images/logo/search-icon.png) no-repeat 9px center;
+      border: solid 1px #ccc;
+      padding:3px 11px 2px 5px;
+      width: 55px;   
+      -webkit-border-radius: 15em;
+      -moz-border-radius: 15em;
+      border-radius: 15em;
+      
+      -webkit-transition: all .5s;
+      -moz-transition: all .5s;
+      transition: all .5s;
 }
     #Search input[type=search]:hover {
       background-color: #fff;

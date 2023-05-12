@@ -63,5 +63,8 @@ public class ProductServiceImpl implements ProductService{
 			return "success";
 	}
 
-	
+	@Override
+	public List<Product> getProductsByName(String search) {
+		return productReponsitory.getProductsByName(search);
+	}
 }

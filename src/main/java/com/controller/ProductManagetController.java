@@ -79,11 +79,11 @@ public class ProductManagetController {
 		if (photo.isEmpty()) {
 			return "infor";
 		}
-		Path path = Paths.get("D:\\HocHanh\\HK2-N3-2023\\WWW\\BTL\\Product\\src\\main\\webapp\\assets\\upload");
+		Path path = Paths.get("D:\\Nhom6_WWW\\baitaplonwww\\src\\main\\webapp\\resources\\images\\upload");
 		try {
 			InputStream inputStream = photo.getInputStream();
 			Files.copy(inputStream, path.resolve(photo.getOriginalFilename()), StandardCopyOption.REPLACE_EXISTING);
-			product.setImage("assets/upload/" + photo.getOriginalFilename());
+			product.setImage("resources/images/upload/" + photo.getOriginalFilename());
 
 			modelMap.addAttribute("product", product);
 			productService.addProduct(product);
