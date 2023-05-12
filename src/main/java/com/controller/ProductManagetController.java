@@ -41,7 +41,7 @@ public class ProductManagetController {
 	public String listOrDetail(Model theModel) {
 		List<Product> products = productService.getAllProducts();
 		theModel.addAttribute("products", products);
-		return "ProductManager";
+		return "admin_layout/ProductManager";
 	}
 
 	@GetMapping("/deleteProduct")
@@ -60,7 +60,7 @@ public class ProductManagetController {
 		theModel.addAttribute("categories", categories);
 		theModel.addAttribute("product", product);
 
-		return "addProduct";
+		return "admin_layout/addProduct";
 	}
 
 	@PostMapping("/saveProduct")
@@ -101,7 +101,7 @@ public class ProductManagetController {
 		List<Category> categories = categoryService.getAllCategories();
 		model.addAttribute("product", product);
 		model.addAttribute("categories", categories);
-		return "ProductInfor";
+		return "admin_layout/ProductInfor";
 	}
 
 	@PostMapping("/updateProduct")

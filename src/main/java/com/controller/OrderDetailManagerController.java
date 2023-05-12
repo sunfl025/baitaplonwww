@@ -32,7 +32,7 @@ public class OrderDetailManagerController {
 	 public String listOrDetail(Model theModel) {
 		 List<OrderDetail>orderDetails = orderDetailService.getAllOrderDetail();
 		 theModel.addAttribute("orderDetails", orderDetails);
-		 return "OrderManager";
+		 return "admin_layout/OrderManager";
 	 }
 	 @GetMapping("/deleteOrDetail")
 	    public String delete(@RequestParam("orderdetailId") int theId) {
@@ -48,7 +48,7 @@ public class OrderDetailManagerController {
 		 model.addAttribute("orderDetail", orderDetail);
 		 Product product = productService.getProductById(orderDetail.getProduct().getId());
 		 model.addAttribute("proudct", product);
-		 return "OrderInfor";
+		 return "admin_layout/OrderInfor";
 	 }
 	}
 
