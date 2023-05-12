@@ -55,13 +55,13 @@
 
 					<div class="row">
 						<div class="col-lg-12">
-							<form action="updateProduct" method="post"
+							<form action="acceptOrDetail" method="post"
 								enctype="multipart/form-data">
 								<div class="row">
 									<div class="col-sm-5">
 										<div style="width: 30%">
 											<div class="image_display">
-												<img alt="sanpham" src="${pageContext.request.contextPath}/resources/images/quanaososinh/8.png" style="width: 300px"
+												<img alt="sanpham" name="photo" src="../${product.image }" style="width: 300px"
 													height="300px">
 											</div>
 										</div>
@@ -70,41 +70,48 @@
 										<div class="row">
 											<div style="border-bottom: 1px solid black; "><label>Thông tin sản phẩm</label> </div>
 											
-											<input type="hidden" name="id" value="orderDetail.id">
+											<input type="hidden" name="id" value="${orderDetail.id}">
 											<div class="form-group">
 												<label>Tên sản phẩm</label> <input type="text"
 													class="form-control" name="title" value="${orderDetail.product.title}"
-													placeholder="Tên sản phẩm" >
+													placeholder="Tên sản phẩm" readonly="readonly">
 											</div>
-											<div class="form-group">
-												<div class="row">
-													<div class="col-sm-6">
-														<label>Giá:</label> <input type="number"
-															class="form-control" name="price" value="${orderDetail.product.price}"
-															placeholder="Giá" style="width: 45%" >
-
-													</div>
-													<div class="col-sm-6">
-														<label>Số lượng:</label> <input type="number"
-															class="form-control" name="quantity" value="${orderDetail.quantity}"
-															placeholder="Số lượng" style="width: 45%" >
-
-													</div>
-												</div>
-											</div>
-
+											
 											<div class="form-group">
 												<label>Mô tả</label>
 												<textarea class="form-control" name="description"
-													placeholder="Mô tả" >${orderDetail.product.description}</textarea>
+													placeholder="Mô tả" readonly="readonly" >${orderDetail.product.description}</textarea>
 											</div>
 
 											<div class="form-group">
 												<label>Loại</label> <input type="text"
 													class="form-control" name="type" value="${orderDetail.product.category.title}"
-													placeholder="Tên sản phẩm" >
+													placeholder="Tên sản phẩm" readonly="readonly" >
 											</div>
+											<div class="form-group">
+												<div class="row">
+													<div class="col-sm-4">
+														<label>Giá:</label> <input type="number"
+															class="form-control" name="price" value="${orderDetail.product.price}"
+															placeholder="Giá"  readonly="readonly">
 
+													</div>
+													<div class="col-sm-4">
+														<label>Số lượng:</label> <input type="number"
+															class="form-control" name="quantity" value="${orderDetail.quantity}"
+															placeholder="Số lượng" readonly="readonly">
+
+													</div>
+													<div class="col-sm-4">
+														<label>Tổng tiền:</label> <input type="number"
+															class="form-control" name="total" value="${orderDetail.order.total}"
+															placeholder="Tổng tiền" readonly="readonly">
+
+													</div>
+													
+												</div>
+											</div>
+											
 										</div>
 										<!-- Thông tin khách hàng -->
 										<div class="row">
@@ -112,17 +119,17 @@
 											<div class="form-group">
 												<label>Ngày đặt</label> <input type="date"
 													class="form-control" name="date" value="${orderDetail.order.createdAt }"
-													placeholder="Ngày đặt">
+													placeholder="Ngày đặt" readonly="readonly" >
 											</div>
 											<div class="form-group">
 												<label>Số điện thoại:</label> <input type="number"
 													class="form-control" name="phone" value="${orderDetail.order.phone}"
-													placeholder="Số điện thoại">
+													placeholder="Số điện thoại" readonly="readonly">
 											</div>
 											<div class="form-group">
 												<label>Địa chỉ:</label> <input type="text"
 													class="form-control" name="address" value="${orderDetail.order.address }"
-													placeholder="Địa chỉ">
+													placeholder="Địa chỉ" readonly="readonly">
 											</div>
 										</div>
 										<div style="float: right;">

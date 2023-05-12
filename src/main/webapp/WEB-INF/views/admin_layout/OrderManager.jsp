@@ -65,39 +65,35 @@
 											<td>Trạng thái</td>
 										</tr>
 										<c:forEach var="tempOrder" items="${orderDetails}">
-											 <c:url var="updateLink" value="/admin/loadOrDetail">
-                                        <c:param name="orderdetailId" value="${tempOrder.id}" />
-                                </c:url>					
-                                <!-- construct an "delete" link with customer id -->
-                                <c:url var="deleteLink" value="/admin/delete">
-                                        <c:param name="orderdetailId" value="${tempOrder.id}" />
-                                </c:url>	
+											<c:url var="updateLink" value="/admin/loadOrDetail">
+												<c:param name="orderdetailId" value="${tempOrder.id}" />
+											</c:url>
+											<!-- construct an "delete" link with customer id -->
+											<c:url var="deleteLink" value="/admin/delete">
+												<c:param name="orderdetailId" value="${tempOrder.id}" />
+											</c:url>
 											<tr>
 												<td>${tempOrder.product.title}</td>
 												<td>${tempOrder.quantity}</td>
 												<td>${tempOrder.product.price}</td>
 												<td>${tempOrder.order.phone}</td>
 												<td>${tempOrder.order.createdAt}</td>
-												<td>${tempOrder.order.status}</td>
-												<td>
-													<button type="button"
-														class="btn btn-default waves-effect waves-light btn-sm"
-														id="acept_button">
-														<a href="">Chấp nhận</a>
-													</button>
-												</td>
+												<td>${tempOrder.status}</td>
+												
 												<td>
 													<button type="button"
 														class="btn btn-default waves-effect waves-light btn-sm "
 														id="info_button">
 														<a href="${updateLink }">Thông tin</a>
-														</button>
+													</button>
 												</td>
 												<td>
 													<button type="button"
 														class="btn btn-default waves-effect waves-light btn-sm"
-														id="Delete_button"> <a href="${deleteLink}"
-                                                   onclick="if (!(confirm('Are you sure you want to delete this customer?'))) return false">Delete</a></button>
+														id="Delete_button">
+														<a href="${deleteLink}"
+															onclick="if (!(confirm('Are you sure you want to delete this customer?'))) return false">Delete</a>
+													</button>
 												</td>
 											</tr>
 										</c:forEach>
@@ -134,18 +130,26 @@
 	</div>
 
 
-		 <script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/js/bootstrap.min.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/js/metisMenu.min.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/js/waves.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/js/jquery.slimscroll.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/assets/js/bootstrap.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/assets/js/metisMenu.min.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/waves.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/assets/js/jquery.slimscroll.js"></script>
 
-    <!-- Sweet-Alert  -->
-    <script src="${pageContext.request.contextPath}../plugins/sweet-alert2/sweetalert2.min.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/pages/jquery.sweet-alert.init.js"></script>
+	<!-- Sweet-Alert  -->
+	<script
+		src="${pageContext.request.contextPath}../plugins/sweet-alert2/sweetalert2.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/assets/pages/jquery.sweet-alert.init.js"></script>
 
-    <!-- App js -->
-    <script src="${pageContext.request.contextPath}/assets/js/jquery.core.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/js/jquery.app.js"></script>
+	<!-- App js -->
+	<script
+		src="${pageContext.request.contextPath}/assets/js/jquery.core.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/assets/js/jquery.app.js"></script>
 </body>
 </html>

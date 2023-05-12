@@ -59,4 +59,9 @@ public class OrderDetailServiceImpl implements OrderDetailService{
 		return "success";
 	}
 
+	@Override
+	public List<OrderDetail> getOrderDetailsByStatus(String status) {
+		return orderDetailReponsitory.getOrderDetailByStatus(status);
+	}
+
 }
