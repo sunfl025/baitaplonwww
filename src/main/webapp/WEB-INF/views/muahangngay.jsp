@@ -28,7 +28,7 @@
     width: 40px;
     }
     </style>
-<body>
+<body id="app">
 
 <form:form action="muahangngay" modelAttribute="product" method="GET">
    <form:hidden path="id"/>
@@ -57,7 +57,7 @@
                                 <th>Trạng thái</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody >
                             <tr>
                                 <td><input readonly name="theId" value ="${product.id}" class="inputId"> </td>
                                 <td>${product.title}</td>
@@ -66,7 +66,7 @@
                                 </td>
                                 
                                 <td>
-                                            <div >
+                                           <div >
                                                 <input   type="number" class="form-control" 
                                                     aria-describedby="emailHelp" value=1 name="quantity" min=1>     
                                                     <span class="text-danger" id="error_phone"></span>                                              
@@ -79,6 +79,16 @@
                             
                         </tbody>
                     </table>
+                    <br>
+                    <c:if test='${success.equalsIgnoreCase("true")}'>
+                    <div class="alert alert-success">Bạn đã đặt hàng thành công</div>
+                    </c:if>
+                
+                  
+                              <c:if test='${success.equalsIgnoreCase("false")}'>
+                    <div class="alert alert-danger">Có lỗi xảy ra</div>
+                    </c:if>
+                    
                     <div class="row">
                         <div class="col-7">
                              <div style="width: 100%;">
@@ -86,36 +96,43 @@
                                     <div class="col-12">
             
                                         <br>
-                                         <form class="col-12" >
-                                            
-                                         <!--   <div class="form-group col-12" >
-                                                <input   type="number" class="form-control" 
-                                                    aria-describedby="emailHelp" placeholder="0" name="quantity">     
-                                                    <span class="text-danger" id="error_phone"></span>                                              
-                                            </div> -->
+                                         <input  id="txt_phone" type="hidden" class="form-control" 
+                                      value="true"
+                                                   name="success"> 
+                                      <input  id="txt_phone" type="hidden" class="form-control" 
+                                      :value="JSON.stringify(carts)"
+                                                   name="products">
+                                                    <input  id="txt_phone" type="hidden" class="form-control" 
+                                      :value="total"
+                                                   name="total">
                                             <br>
                                             <div class="form-group col-12" >
-                                                <input id="txt_phone" type="text" class="form-control" 
+                                                <input v-model="phone" id="txt_phone" type="text" class="form-control" 
                                                     aria-describedby="emailHelp" placeholder="Số điện thoại" name="phone">
-                                                    <span class="text-danger" id="error_phone"></span>
+                                                    <p class="text-danger text-left" v-if="phoneRequired" id="error_phone">Bạn chưa nhập số điện thoại</p>
+                                                    
+                                                        <p class="text-danger text-left" v-if="phoneValid" id="error_phone">Số điện thoại không hợp lệ</p>
                                             </div>
                                             <br>
                                             <div class="form-group col-12" >
-                                                <input id="txt_address" type="text" class="form-control" 
+                                                <input  v-model="address" id="txt_address" type="text" class="form-control" 
                                                     aria-describedby="emailHelp" placeholder="Địa chỉ" name="address">
-                                                    <span class="text-danger" id="error_address"></span>
+                                            <span class="text-danger" v-if="addressRequired" id="error_phone">Bạn chưa nhập địa chỉ</span>
                                             </div>
                                             <br>
                                             <div class="form-group col-12" >
-                                                <input id="txt_note" type="text" class="form-control" 
+                                                <input id="txt_note" type="text" name="message" class="form-control" 
                                                     aria-describedby="emailHelp" placeholder="Ghi chú">
                                                     <span class="text-danger" id="error_address"></span>
                                             </div>
+                                            
+                                            
                                             <br>
                                             <div class="form-check">
                                             </div>
+                                            <button @click="submit($event)" style="margin-left: 18px;" type="submit"   class="btn btn-primary" onclick="" >Đặt hàng</button>
                                             
-                                            <button style="margin-left: 18px;" type="submit"   class="btn btn-primary" onclick="if(!(confirm('Bạn có xác nhận mua ?'))) return false; return alert('Mua thành công')" >Đặt hàng</button>
+                                            
                                         </form>
             
                                           <br>
@@ -140,9 +157,12 @@
     <div style="clear: both;"></div>
     </form>
     <jsp:include page="my_footer.jsp"></jsp:include>
+    
     </form:form>
 </body>
+
 <script src="../js/jquery.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/kiemtraform.js"></script>
+<jsp:include page="sectionJS.jsp"></jsp:include>
 </html>
