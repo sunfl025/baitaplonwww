@@ -130,7 +130,7 @@
                                             <br>
                                             <div class="form-check">
                                             </div>
-                                            <button @click="submit($event)" style="margin-left: 18px;" type="submit"   class="btn btn-primary" onclick="" >Đặt hàng</button>
+                                            <button @click="submit($event)" style="margin-left: 18px;" type="submit"   class="btn btn-primary" onclick="if(!(confirm('Bạn có xác nhận mua ?'))) return false" >Đặt hàng</button>
                                             
                                             
                                         </form>

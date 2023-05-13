@@ -131,7 +131,7 @@
                     </button>
                         <button @click="addCart('${product.id}','${product.title}','${product.price}','${product.image}','${product.status}')"
                         class="btn btn-primary" type="button" style="margin-left:5px"> 
-                          <i   class="material-icons cart">shopping_cart</i></div>
+                          <i   class="material-icons cart">shopping_cart</i></button>
                 </div>
             </div>
         </section>
