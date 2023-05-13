@@ -8,4 +8,5 @@ import com.model.OrderDetail;
 
 public interface OrderDetailReponsitory extends JpaRepository<OrderDetail, Integer>{
 	List<OrderDetail> getOrderDetailByStatus(String status);
+	List<OrderDetail> getOrderDetailsByEnable(int enable);
 }

@@ -12,4 +12,6 @@ public interface OrderDetailService {
 	public OrderDetail updateOrDetail(int id,OrderDetail orderDetail);
 	public String deleteOrDetail(int id);
 	public List<OrderDetail> getOrderDetailsByStatus(String status);
+	public List<OrderDetail> getOrderDetailsByEnable(int enable);
+
 }

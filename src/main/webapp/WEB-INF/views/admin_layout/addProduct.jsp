@@ -45,7 +45,7 @@
 							<div class="page-title-box">
 								<h4 class="page-title">Thêm sản phẩm</h4>
 								<ol class="breadcrumb p-0 m-0">
-									<li><a href="#">KIDShop</a></li>
+									<li><a href="#">KIDFASHION</a></li>
 									<li><a href="#">Quản lý</a></li>
 									<li class="active">Thêm sản phẩm</li>
 								</ol>
@@ -57,38 +57,51 @@
 
 					<div class="row">
 						<div class="col-lg-12">
-							<form action="saveProduct" method="post"
-								enctype="multipart/form-data">
+							<form:form action="saveProduct" method="post"
+								modelAttribute="PRODUCT" enctype="multipart/form-data">
 								<div class="form-group">
-									<label>Tên sản phẩm</label> <input type="text"
-										class="form-control" name="title" placeholder="Tên sản phẩm" >
+									<label>Tên sản phẩm</label>
+									<form:input path="title" type="text" class="form-control"
+										placeholder="Tên sản phẩm" />
+									<form:errors path="title"></form:errors>
 								</div>
 								<div class="form-group">
-									<label>Giá:</label> <input type="number" class="form-control"
-										name="price" placeholder="Giá">
+									<label>Giá:</label>
+									<form:input path="price" type="number" class="form-control"
+										placeholder="Giá" />
+									<form:errors path="price"></form:errors>
 								</div>
 								<div class="form-group">
-									<label>Mô tả</label> <input type="text" class="form-control"
-										name="description" placeholder="Mô tả">
+									<label>Mô tả</label>
+									<form:textarea type="text" class="form-control" path="description"
+										placeholder="Mô tả" />
+
 								</div>
 
 								<div class="form-group">
 									<label>Ảnh</label> <input type="file" class="form-control"
 										name="photo" accept="image/jpg; image/png">
+										<span>${errorImage}</span>
 								</div>
 								<div class="form-group">
-								<label>Loại</label><br>
-									<select class="form-select" name="type" style="width: 90%; height: 30px">
-										<c:forEach var="tempCategory" items="${categories}">
-											<option value="${tempCategory.title}">${tempCategory.title}</option>
-										</c:forEach>
-										
-									</select>
+									<label>Loại</label><br>
+									<form:select class="form-select" path="category.title"
+										style="width: 90%; height: 30px">
+
+										<form:option value="Quần áo bé gái">Quần áo bé gái</form:option>
+										<form:option value="Quần áo bé trai">Quần áo bé trai</form:option>
+										<form:option value="Quần áo sơ sinh">Quần áo sơ sinh</form:option>
+										<form:option value="Phụ kiện">Phụ kiện</form:option>
+
+
+									</form:select>
 								</div>
-								<button type="submit" class="btn btn-primary">Lưu</button>
-								<button type="reset" class="btn btn-primary" ><a href="/admin/listProduct" style="color: white;">Hủy</a> </button>
-							</form>
-							
+								<form:button type="submit" class="btn btn-primary">Lưu</form:button>
+								<form:button type="reset" class="btn btn-primary">
+									<a href="/admin/listProduct" style="color: white;">Hủy</a>
+								</form:button>
+							</form:form>
+
 						</div>
 						<!-- end card-box -->
 					</div>
@@ -114,20 +127,29 @@
 	</div>
 
 	<!-- <script src="assets/js/modernizr.min.js"></script>
- -->    <!-- jQuery  -->
-    <script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/js/bootstrap.min.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/js/metisMenu.min.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/js/waves.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/js/jquery.slimscroll.js"></script>
+ -->
+	<!-- jQuery  -->
+	<script
+		src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/assets/js/bootstrap.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/assets/js/metisMenu.min.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/waves.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/assets/js/jquery.slimscroll.js"></script>
 
-    <!-- Sweet-Alert  -->
-    <script src="${pageContext.request.contextPath}../plugins/sweet-alert2/sweetalert2.min.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/pages/jquery.sweet-alert.init.js"></script>
+	<!-- Sweet-Alert  -->
+	<script
+		src="${pageContext.request.contextPath}../plugins/sweet-alert2/sweetalert2.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/assets/pages/jquery.sweet-alert.init.js"></script>
 
-    <!-- App js -->
-    <script src="${pageContext.request.contextPath}/assets/js/jquery.core.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/js/jquery.app.js"></script>
-	
+	<!-- App js -->
+	<script
+		src="${pageContext.request.contextPath}/assets/js/jquery.core.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/assets/js/jquery.app.js"></script>
+
 </body>
 </html>

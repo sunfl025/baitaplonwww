@@ -3,6 +3,10 @@ package com.model;
 import java.sql.Date;
 import java.util.List;
 
+import org.hibernate.annotations.Check;
+import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,13 +15,18 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 @Entity
 @Table(name = "orders")
 public class Order {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	@Size(min = 10,max=10, message = "Số điện thoại phải đủ 10 số")
 	private String phone;
+	@NotNull(message = "Địa chỉ không thể rỗng")
 	private String address;
 	private double total;
 	private String status;

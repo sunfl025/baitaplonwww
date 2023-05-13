@@ -2,6 +2,7 @@ package com.model;
 
 import java.sql.Date;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,20 +11,23 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Min;
 @Entity
 @Table(name = "orderDetails")
 public class OrderDetail {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	@Min(value = 1, message = "Số lượng không thể nhỏ hơn 1")
 	private int quantity;
 	private String status;
 	@Column(name = "created_at")
 	private Date createdAt;
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "order_id")
 	private Order order;
-	@ManyToOne
+	private int enable;
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "product_id")
 	private Product product;
 	public int getId() {
@@ -53,6 +57,13 @@ public class OrderDetail {
 	public Order getOrder() {
 		return order;
 	}
+	
+	public int getEnable() {
+		return enable;
+	}
+	public void setEnable(int enable) {
+		this.enable = enable;
+	}
 	public void setOrder(Order order) {
 		this.order = order;
 	}
@@ -77,6 +88,17 @@ public class OrderDetail {
 		this.status = status;
 		this.createdAt = createdAt;
 		this.order = order;
+		this.product = product;
+	}
+	
+	public OrderDetail(@Min(value = 1, message = "Số lượng không thể nhỏ hơn 1") int quantity, String status,
+			Date createdAt, Order order, int enable, Product product) {
+		super();
+		this.quantity = quantity;
+		this.status = status;
+		this.createdAt = createdAt;
+		this.order = order;
+		this.enable = enable;
 		this.product = product;
 	}
 	@Override

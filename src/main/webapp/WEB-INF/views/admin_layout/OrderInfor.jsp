@@ -43,7 +43,7 @@
 							<div class="page-title-box">
 								<h4 class="page-title">Thông tin đơn hàng</h4>
 								<ol class="breadcrumb p-0 m-0">
-									<li><a href="#">KIDShop</a></li>
+									<li><a href="#">KIDFASHION</a></li>
 									<li><a href="#">Quản lý</a></li>
 									<li class="active">Thông tin đơn hàng</li>
 								</ol>
@@ -55,81 +55,93 @@
 
 					<div class="row">
 						<div class="col-lg-12">
-							<form action="acceptOrDetail" method="post"
-								enctype="multipart/form-data">
+							<form:form action="updateOrDetail" method="post"
+								enctype="multipart/form-data" modelAttribute="orderDetail">
 								<div class="row">
 									<div class="col-sm-5">
 										<div style="width: 30%">
 											<div class="image_display">
-												<img alt="sanpham" name="photo" src="../${product.image }" style="width: 300px"
+												<img alt="sanpham" name="photo"
+													src="../${orderDetail.product.image }" style="width: 300px"
 													height="300px">
 											</div>
 										</div>
 									</div>
 									<div class="col-sm-7">
 										<div class="row">
-											<div style="border-bottom: 1px solid black; "><label>Thông tin sản phẩm</label> </div>
-											
+											<div style="border-bottom: 1px solid black;">
+												<label>Thông tin sản phẩm</label>
+											</div>
+
 											<input type="hidden" name="id" value="${orderDetail.id}">
 											<div class="form-group">
-												<label>Tên sản phẩm</label> <input type="text"
-													class="form-control" name="title" value="${orderDetail.product.title}"
-													placeholder="Tên sản phẩm" readonly="readonly">
-											</div>
-											
-											<div class="form-group">
-												<label>Mô tả</label>
-												<textarea class="form-control" name="description"
-													placeholder="Mô tả" readonly="readonly" >${orderDetail.product.description}</textarea>
+												<label>Tên sản phẩm</label>
+												<form:input type="text" class="form-control"
+													path="product.title" readonly="true" placeholder="Tên sản phẩm"/>
+												<form:errors path="product.title"></form:errors>
 											</div>
 
 											<div class="form-group">
-												<label>Loại</label> <input type="text"
-													class="form-control" name="type" value="${orderDetail.product.category.title}"
-													placeholder="Tên sản phẩm" readonly="readonly" >
+												<label>Mô tả</label>
+												<form:textarea class="form-control"
+													path="product.description" placeholder="Mô tả" readonly="true"
+												></form:textarea>
+											</div>
+
+											<div class="form-group">
+												<label>Loại</label>
+												<form:input type="text" class="form-control" readonly="true"
+													path="product.category.title" />
 											</div>
 											<div class="form-group">
 												<div class="row">
 													<div class="col-sm-4">
-														<label>Giá:</label> <input type="number"
-															class="form-control" name="price" value="${orderDetail.product.price}"
-															placeholder="Giá"  readonly="readonly">
+														<label>Giá:</label>
+														<form:input type="number" class="form-control"
+															path="product.price" placeholder="Giá"
+															readonly="true" />
+													</div>
+													<div class="col-sm-4">
+														<label>Số lượng:</label>
+														<form:input type="number" class="form-control"
+															path="quantity" placeholder="Số lượng"
+															readonly="true" />
+
 
 													</div>
 													<div class="col-sm-4">
-														<label>Số lượng:</label> <input type="number"
-															class="form-control" name="quantity" value="${orderDetail.quantity}"
-															placeholder="Số lượng" readonly="readonly">
+														<label>Tổng tiền:</label>
+														<form:input type="number" class="form-control"
+															path="order.total" placeholder="Tổng tiền"
+															readonly="true" />
 
 													</div>
-													<div class="col-sm-4">
-														<label>Tổng tiền:</label> <input type="number"
-															class="form-control" name="total" value="${orderDetail.order.total}"
-															placeholder="Tổng tiền" readonly="readonly">
 
-													</div>
-													
 												</div>
 											</div>
-											
+
 										</div>
 										<!-- Thông tin khách hàng -->
 										<div class="row">
-											<div style="border-bottom: 1px solid black; "><label>Thông tin khách hàng</label> </div>
-											<div class="form-group">
-												<label>Ngày đặt</label> <input type="date"
-													class="form-control" name="date" value="${orderDetail.order.createdAt }"
-													placeholder="Ngày đặt" readonly="readonly" >
+											<div style="border-bottom: 1px solid black;">
+												<label>Thông tin khách hàng</label>
 											</div>
 											<div class="form-group">
-												<label>Số điện thoại:</label> <input type="number"
-													class="form-control" name="phone" value="${orderDetail.order.phone}"
-													placeholder="Số điện thoại" readonly="readonly">
+												<label>Ngày đặt</label>
+												<form:input type="date" class="form-control"
+													path="createdAt" placeholder="Ngày đặt" readonly="true" />
 											</div>
 											<div class="form-group">
-												<label>Địa chỉ:</label> <input type="text"
-													class="form-control" name="address" value="${orderDetail.order.address }"
-													placeholder="Địa chỉ" readonly="readonly">
+												<label>Số điện thoại:</label>
+												<form:input type="number" class="form-control"
+													path="order.phone" placeholder="Số điện thoại"
+													readonly="true" />
+											</div>
+											<div class="form-group">
+												<label>Địa chỉ:</label>
+												<form:input type="text" class="form-control"
+													path="order.address" placeholder="Địa chỉ"
+													readonly="true" />
 											</div>
 										</div>
 										<div style="float: right;">
@@ -142,7 +154,7 @@
 								</div>
 
 
-							</form>
+							</form:form>
 
 						</div>
 						<!-- end card-box -->
@@ -169,18 +181,26 @@
 	</div>
 
 
-	 <script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/js/bootstrap.min.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/js/metisMenu.min.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/js/waves.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/js/jquery.slimscroll.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/assets/js/bootstrap.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/assets/js/metisMenu.min.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/waves.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/assets/js/jquery.slimscroll.js"></script>
 
-    <!-- Sweet-Alert  -->
-    <script src="${pageContext.request.contextPath}../plugins/sweet-alert2/sweetalert2.min.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/pages/jquery.sweet-alert.init.js"></script>
+	<!-- Sweet-Alert  -->
+	<script
+		src="${pageContext.request.contextPath}../plugins/sweet-alert2/sweetalert2.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/assets/pages/jquery.sweet-alert.init.js"></script>
 
-    <!-- App js -->
-    <script src="${pageContext.request.contextPath}/assets/js/jquery.core.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/js/jquery.app.js"></script>
+	<!-- App js -->
+	<script
+		src="${pageContext.request.contextPath}/assets/js/jquery.core.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/assets/js/jquery.app.js"></script>
 </body>
 </html>

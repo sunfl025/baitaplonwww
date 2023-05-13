@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,9 +41,9 @@
 					<div class="row">
 						<div class="col-xs-12">
 							<div class="page-title-box">
-								<h4 class="page-title">Sweet Alert</h4>
+								<h4 class="page-title">Sản phẩm</h4>
 								<ol class="breadcrumb p-0 m-0">
-									<li><a href="#">KIDShop</a></li>
+									<li><a href="#">KIDFASHION</a></li>
 									<li><a href="#">Admin manager</a></li>
 									<li class="active">Sản phẩm</li>
 								</ol>
@@ -56,11 +58,33 @@
 							<div class="card-box">
 								<button type="button"
 									class="btn btn-sm btn-primary btn-rounded w-md waves-effect waves-light pull-right">
-									<a href="/admin/addProduct">Thêm sản phẩm</a>
+									<a href="/admin/showFormAddProduct" style="color: white;">Thêm sản phẩm</a>
 								</button>
-								<h4 class="header-title m-b-30">My Files</h4>
-
-
+								<button type="button"
+									class="btn btn-default waves-effect waves-light btn-sm "
+									id="info_button">
+									<a href="/admin/listProductBoy">Quần áo bé trai</a>
+								</button>
+								<button type="button"
+									class="btn btn-default waves-effect waves-light btn-sm "
+									id="info_button">
+									<a href="/admin/listProductGirl">Quần áo bé gái</a>
+								</button>
+								<button type="button"
+									class="btn btn-default waves-effect waves-light btn-sm "
+									id="info_button">
+									<a href="/admin/listProductBaby">Quần áo sơ sinh</a>
+								</button>
+								<button type="button"
+									class="btn btn-default waves-effect waves-light btn-sm "
+									id="info_button">
+									<a href="/admin/listProductAccessory">Phụ kiện</a>
+								</button>
+								<button type="button"
+									class="btn btn-default waves-effect waves-light btn-sm "
+									id="info_button">
+									<a href="/admin/listProduct">Tất cả</a>
+								</button>
 
 							</div>
 							<table class="table">

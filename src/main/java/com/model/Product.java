@@ -24,14 +24,14 @@ public class Product {
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@NotNull(message = "Tên sản phẩm không được trống")
+	@NotEmpty(message = "Tên sản phẩm không được trống")
 	@Column(name = "title")
 	private String title;
-	
+	@Min(value = 500, message = "Giá không thể nhỏ hơn 500đ")
 	private int price;
-
+	
 	private String description, image, status, created_at;
-
+	private int enable;
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "category_id")
 	private Category category;
@@ -41,6 +41,14 @@ public class Product {
 	
 	public int getId() {
 		return id;
+	}
+	
+	public int getEnable() {
+		return enable;
+	}
+
+	public void setEnable(int enable) {
+		this.enable = enable;
 	}
 
 	public void setId(int id) {
@@ -138,6 +146,20 @@ public class Product {
 
 	}
 	
+	public Product(@NotEmpty(message = "Tên sản phẩm không được trống") String title,
+			@Min(value = 500, message = "Giá không thể nhỏ hơn 500đ") int price, String description, String image,
+			String status, String created_at, int enable, Category category) {
+		super();
+		this.title = title;
+		this.price = price;
+		this.description = description;
+		this.image = image;
+		this.status = status;
+		this.created_at = created_at;
+		this.enable = enable;
+		this.category = category;
+	}
+
 	public Product(String title, int price, String description, String status, String created_at, Category category) {
 		super();
 		this.title = title;

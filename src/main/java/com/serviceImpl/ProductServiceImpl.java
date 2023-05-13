@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.model.Category;
 import com.model.Product;
 import com.reponsitory.ProductReponsitory;
 import com.service.ProductService;
@@ -57,11 +58,45 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
-	public String deleteProduct(int id) {
+	public String deleteProduct(Product product) {
 		// TODO Auto-generated method stub
-			productReponsitory.deleteById(id);
+			productReponsitory.delete(product);
 			return "success";
 	}
+
+	@Override
+	public Product getProductByTitle(String title) {
+		// TODO Auto-generated method stub
+		return productReponsitory.getProductByTitle(title);
+	}
+
+	@Override
+	public String deleteProductById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Product> getProductByEnable(int enable) {
+		// TODO Auto-generated method stub
+		return productReponsitory.getProductByEnable(enable);
+	}
+
+	@Override
+	public List<Product> getProductsByTitle(String title) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Product> getProductByCategory(Category category) {
+		// TODO Auto-generated method stub
+		return productReponsitory.getProductByCategory(category);
+	}
+
+
+
+
 
 	
 }

@@ -64,4 +64,11 @@ public class OrderDetailServiceImpl implements OrderDetailService{
 		return orderDetailReponsitory.getOrderDetailByStatus(status);
 	}
 
+	@Override
+	public List<OrderDetail> getOrderDetailsByEnable(int enable) {
+		// TODO Auto-generated method stub
+		return orderDetailReponsitory.getOrderDetailsByEnable(enable);
+	}
+
+
 }

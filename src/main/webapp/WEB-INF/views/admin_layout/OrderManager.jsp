@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,7 +43,7 @@
 							<div class="page-title-box">
 								<h4 class="page-title">Thông tin đơn hàng</h4>
 								<ol class="breadcrumb p-0 m-0">
-									<li><a href="#">KIDShop</a></li>
+									<li><a href="#">KIDFASHION</a></li>
 									<li><a href="#">Quản lý</a></li>
 									<li class="active">Đơn hàng</li>
 								</ol>
@@ -52,8 +54,28 @@
 					<!-- end row -->
 
 					<div class="row">
+
 						<div class="col-lg-12">
 							<div class="card-box">
+								<button type="button"
+									class="btn btn-default waves-effect waves-light btn-sm "
+									id="info_button">
+									<a href="/admin/listOrDetailAccetp">Xác nhận</a>
+								</button>
+								<button type="button"
+									class="btn btn-default waves-effect waves-light btn-sm "
+									id="info_button">
+									<a href="/admin/listOrDetail">Chờ xác nhận</a>
+								</button>
+								<button type="button" 
+									class="btn btn-default waves-effect waves-light btn-sm "
+									id="info_button">
+									<a href="/admin/listTotalOrDetail">Tất cả</a>
+								</button>
+
+
+
+
 								<table class="table">
 									<thead>
 										<tr>
@@ -69,7 +91,7 @@
 												<c:param name="orderdetailId" value="${tempOrder.id}" />
 											</c:url>
 											<!-- construct an "delete" link with customer id -->
-											<c:url var="deleteLink" value="/admin/delete">
+											<c:url var="deleteLink" value="/admin/deleteOrDetail">
 												<c:param name="orderdetailId" value="${tempOrder.id}" />
 											</c:url>
 											<tr>
@@ -79,7 +101,7 @@
 												<td>${tempOrder.order.phone}</td>
 												<td>${tempOrder.order.createdAt}</td>
 												<td>${tempOrder.status}</td>
-												
+
 												<td>
 													<button type="button"
 														class="btn btn-default waves-effect waves-light btn-sm "
